@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/hibiscus-property-care/static/css/main.091cdc13.css",
-    "main.js": "/hibiscus-property-care/static/js/main.1782a8a9.js",
-    "static/media/homeHero.jpg": "/hibiscus-property-care/static/media/homeHero.cafba8518c4a63bdda55.jpg",
-    "static/media/logo.png": "/hibiscus-property-care/static/media/logo.ea607a343cd405e0dbed.png",
-    "static/media/galSection.jpg": "/hibiscus-property-care/static/media/galSection.8ef4be8d1b805b982641.jpg",
-    "index.html": "/hibiscus-property-care/index.html",
-    "main.091cdc13.css.map": "/hibiscus-property-care/static/css/main.091cdc13.css.map",
-    "main.1782a8a9.js.map": "/hibiscus-property-care/static/js/main.1782a8a9.js.map"
+    "main.css": "/static/css/main.091cdc13.css",
+    "main.js": "/static/js/main.b69d0142.js",
+    "static/media/homeHero.jpg": "/static/media/homeHero.cafba8518c4a63bdda55.jpg",
+    "static/media/logo.png": "/static/media/logo.ea607a343cd405e0dbed.png",
+    "static/media/galSection.jpg": "/static/media/galSection.8ef4be8d1b805b982641.jpg",
+    "index.html": "/index.html",
+    "main.091cdc13.css.map": "/static/css/main.091cdc13.css.map",
+    "main.b69d0142.js.map": "/static/js/main.b69d0142.js.map"
   },
   "entrypoints": [
     "static/css/main.091cdc13.css",
-    "static/js/main.1782a8a9.js"
+    "static/js/main.b69d0142.js"
   ]
 }
