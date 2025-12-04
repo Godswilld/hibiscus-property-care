@@ -1,2 +1,6 @@
 Prompts
-get to folder  cd C:\Users\Lenovo\hibiscus-property-care
+get to folder    cd C:\Users\Lenovo\hibiscus-property-care
+
+open foler called public     cd public
+
+edit file name cname and add text    echo www.hibiscuspropertycare.co.za > CNAME
