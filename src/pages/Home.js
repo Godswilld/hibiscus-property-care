@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-/* --- UPDATED IMPORTS (Using ../ to go back up to src) --- */
 import '../App.css'; 
 import homeHero from '../homeHero.jpg';
 import galSection from '../galSection.jpg';
@@ -12,11 +10,16 @@ function Home() {
       {/* HERO SECTION */}
       <div 
         className="hero-container" 
+        id="home"
         style={{ backgroundImage: `url(${homeHero})` }}
       >
         <div className="hero-overlay"></div>
-        <div className="hero-content" id="home">
+        <div className="hero-content">
           <h1 className="hero-title">Your Space, Reimagined.</h1>
+          
+          {/* --- THE NEW SLOGAN --- */}
+          <h3 className="hero-slogan">"Your home, your dream, our care"</h3>
+
           <p className="hero-subtitle">
             Comprehensive care for your personal paradise.
           </p>

@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react'; // Added useState
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link'; 
+import { FaBars, FaTimes } from 'react-icons/fa'; // Import Icons
 import './App.css';
 import logo from './logo.png'; 
 
 /* --- IMPORTS --- */
 import Home from './pages/Home';
 import Booking from './pages/Booking';
-import PriceList from './pages/PriceList'; // Import new page
+import PriceList from './pages/PriceList'; 
 
 function App() {
+  // State to track if menu is open or closed
+  const [click, setClick] = useState(false);
+
+  // Toggle function
+  const handleClick = () => setClick(!click);
+  
+  // Close menu when a link is clicked
+  const closeMobileMenu = () => setClick(false);
+
   return (
     <Router>
       <div className="App">
@@ -17,20 +27,46 @@ function App() {
         {/* NAVBAR */}
         <nav className="navbar">
           <div className="nav-container">
-            <HashLink smooth to="/#home" className="logo-link">
+            
+            {/* Logo */}
+            <HashLink smooth to="/#home" className="logo-link" onClick={closeMobileMenu}>
               <img src={logo} alt="Hibiscus Property Care" className="nav-logo" />
             </HashLink>
             
-            <div className="nav-links">
-              <HashLink smooth to="/#home" className="nav-link">Home</HashLink>
-              <HashLink smooth to="/#services" className="nav-link">Services</HashLink>
-              
-              {/* NEW PRICE LIST LINK */}
-              <Link to="/pricelist" className="nav-link">Price List</Link>
-              
-              <HashLink smooth to="/#gallery" className="nav-link">Gallery</HashLink>
-              <Link to="/booking" className="nav-link quote-btn-nav">Get Quote</Link>
+            {/* Mobile Menu Icon (Hamburger/X) */}
+            <div className="menu-icon" onClick={handleClick}>
+              {click ? <FaTimes /> : <FaBars />}
             </div>
+
+            {/* Nav Links (Note the conditional class 'active') */}
+            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+              <li className="nav-item">
+                <HashLink smooth to="/#home" className="nav-link" onClick={closeMobileMenu}>
+                  Home
+                </HashLink>
+              </li>
+              <li className="nav-item">
+                <HashLink smooth to="/#services" className="nav-link" onClick={closeMobileMenu}>
+                  Services
+                </HashLink>
+              </li>
+              <li className="nav-item">
+                <Link to="/pricelist" className="nav-link" onClick={closeMobileMenu}>
+                  Price List
+                </Link>
+              </li>
+              <li className="nav-item">
+                <HashLink smooth to="/#gallery" className="nav-link" onClick={closeMobileMenu}>
+                  Gallery
+                </HashLink>
+              </li>
+              <li className="nav-item">
+                <Link to="/booking" className="nav-link quote-btn-nav" onClick={closeMobileMenu}>
+                  Get Quote
+                </Link>
+              </li>
+            </ul>
+
           </div>
         </nav>
 
@@ -38,7 +74,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/booking" element={<Booking />} />
-          <Route path="/pricelist" element={<PriceList />} /> {/* New Route */}
+          <Route path="/pricelist" element={<PriceList />} />
         </Routes>
 
         {/* FOOTER */}

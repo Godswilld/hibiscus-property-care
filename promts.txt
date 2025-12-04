@@ -1,6 +1,10 @@
 Prompts
-get to folder    cd C:\Users\Lenovo\hibiscus-property-care
+get to folder:    cd C:\Users\Lenovo\hibiscus-property-care
 
-open foler called public     cd public
+open foler called public:     cd public
 
-edit file name cname and add text    echo www.hibiscuspropertycare.co.za > CNAME
+edit file name cname and add text:    echo www.hibiscuspropertycare.co.za > CNAME
+
+save and uplaod to github:   git add .
+				git commit -m "updated price list to simple 3-column layout"
+				git push

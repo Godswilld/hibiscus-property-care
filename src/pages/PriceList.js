@@ -1,107 +1,202 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-import logo from '../logo.png'; 
 
 function PriceList() {
+  // State to toggle between Bi-Weekly and Weekly prices
+  const [cycle, setCycle] = useState('biweekly'); // 'biweekly' or 'weekly'
+
   return (
     <div className="pricelist-page">
-      
-      {/* PAPER CONTAINER (The White Flyer Box) */}
-      <div className="pricelist-paper">
+      <div className="pricelist-container">
         
-        {/* HEADER SECTION */}
+        {/* HEADER */}
         <div className="pricelist-header">
-          <img src={logo} alt="Hibiscus Logo" className="pricelist-logo" />
-          <h5 className="brand-subtitle">HIBISCUS PROPERTY CARE</h5>
-          <h1 className="pricelist-title">PRICE LIST</h1>
-          <h2 className="pricelist-sub">Subscription Garden Care Packages <br/>(Bi-Weekly)</h2>
+          <h1 className="section-title">Service Packages</h1>
+          <p className="section-subtitle">Choose the schedule that fits your garden's needs.</p>
+
+          {/* TOGGLE SWITCH */}
+          <div className="pricing-toggle">
+            <button 
+              className={cycle === 'biweekly' ? 'toggle-btn active' : 'toggle-btn'}
+              onClick={() => setCycle('biweekly')}
+            >
+              Bi-Weekly (Standard)
+            </button>
+            <button 
+              className={cycle === 'weekly' ? 'toggle-btn active' : 'toggle-btn'}
+              onClick={() => setCycle('weekly')}
+            >
+              Weekly (Premium)
+            </button>
+          </div>
         </div>
 
-        {/* TOP ROW: BRONZE & SILVER */}
-        <div className="tiers-row">
+        {/* --- 3-COLUMN TIERS --- */}
+        <div className="pricing-grid">
           
-          {/* BRONZE PACKAGE */}
-          <div className="tier-card bronze-tier">
-            <h3 className="tier-name">Bronze</h3>
-            <div className="price-group">
-              <p><strong>Small (&lt;200m²)</strong> = R450pm</p>
-              <p><strong>Medium (200m²-500m²)</strong> = R700pm</p>
-              <p><strong>Large (500m²-1000m²)</strong> = R1700pm</p>
+          {/* BRONZE */}
+          <div className="pricing-card">
+            <div className="card-header">
+              <h3>Bronze</h3>
+              <p>Essential Maintenance</p>
             </div>
-            <ul className="tier-features">
-              <li>Lawn Mowing</li>
-              <li>Edge Trimming</li>
-              <li>Basic Blow Clean</li>
+            <div className="price-box">
+              <div className="price-row">
+                <span>Small</span>
+                <strong>{cycle === 'biweekly' ? 'R450' : 'R750'}</strong>
+              </div>
+              <div className="price-row">
+                <span>Medium</span>
+                <strong>{cycle === 'biweekly' ? 'R700' : 'R1150'}</strong>
+              </div>
+              <div className="price-row">
+                <span>Large</span>
+                <strong>{cycle === 'biweekly' ? 'R1700' : 'R2800'}</strong>
+              </div>
+              <p className="per-month">per month</p>
+            </div>
+            <ul className="feature-list">
+              <li>✅ Lawn Mowing</li>
+              <li>✅ Edge Trimming</li>
+              <li>✅ Basic Blow Clean</li>
             </ul>
+            <Link to="/booking" className="card-btn">Choose Bronze</Link>
           </div>
 
-          {/* SILVER PACKAGE */}
-          <div className="tier-card silver-tier">
-            <div className="best-value-badge">Best Value</div>
-            <h3 className="tier-name">Silver</h3>
-            <div className="price-group">
-              <p><strong>Small (&lt;200m²)</strong> = R600pm</p>
-              <p><strong>Medium (200m²-500m²)</strong> = R800pm</p>
-              <p><strong>Large (500m²-1000m²)</strong> = R1900pm</p>
+          {/* SILVER */}
+          <div className="pricing-card popular">
+            <div className="popular-badge">Best Value</div>
+            <div className="card-header">
+              <h3>Silver</h3>
+              <p>Complete Care</p>
             </div>
-            <ul className="tier-features">
-              <li>Lawn Mowing</li>
-              <li>Edge Trimming</li>
-              <li>Basic Blow Clean</li>
-              <li>Detailed Weeding</li>
-              <li>Hedge Bush Trimming</li>
-              <li>Leaf Removal from Beds</li>
+            <div className="price-box">
+              <div className="price-row">
+                <span>Small</span>
+                <strong>{cycle === 'biweekly' ? 'R600' : 'R1000'}</strong>
+              </div>
+              <div className="price-row">
+                <span>Medium</span>
+                <strong>{cycle === 'biweekly' ? 'R800' : 'R1450'}</strong>
+              </div>
+              <div className="price-row">
+                <span>Large</span>
+                <strong>{cycle === 'biweekly' ? 'R1900' : 'R3300'}</strong>
+              </div>
+              <p className="per-month">per month</p>
+            </div>
+            <ul className="feature-list">
+              <li>✅ <strong>Everything in Bronze</strong></li>
+              <li>✅ Detailed Weeding</li>
+              <li>✅ Hedge / Bush Trimming</li>
+              <li>✅ Leaf Removal (Beds)</li>
             </ul>
+            <Link to="/booking" className="card-btn fill-btn">Choose Silver</Link>
           </div>
+
+          {/* GOLD */}
+          <div className="pricing-card">
+            <div className="card-header">
+              <h3>Gold</h3>
+              <p>Ultimate Treatment</p>
+            </div>
+            <div className="price-box">
+              <div className="price-row">
+                <span>Small</span>
+                <strong>{cycle === 'biweekly' ? 'R800' : 'R1350'}</strong>
+              </div>
+              <div className="price-row">
+                <span>Medium</span>
+                <strong>{cycle === 'biweekly' ? 'R1100' : 'R1900'}</strong>
+              </div>
+              <div className="price-row">
+                <span>Large</span>
+                <strong>{cycle === 'biweekly' ? 'R2400' : 'R4100'}</strong>
+              </div>
+              <p className="per-month">per month</p>
+            </div>
+            <ul className="feature-list">
+              <li>✅ <strong>Everything in Silver</strong></li>
+              <li>✅ Plant Health Check</li>
+              <li>✅ Fertilizer (Seasonal)</li>
+              <li>✅ Mulching (Seasonal)</li>
+              <li>✨ 1 Annual Pressure Wash</li>
+              <li>🚗 Car Wash & Vacuum (@R99)</li>
+            </ul>
+            <Link to="/booking" className="card-btn">Choose Gold</Link>
+          </div>
+
         </div>
 
-        {/* BOTTOM ROW: GOLD */}
-        <div className="gold-row">
-          <div className="tier-card gold-tier">
-            <h3 className="tier-name">Gold</h3>
-            
-            <div className="gold-content">
-              <div className="gold-prices">
-                <p><strong>Small (&lt;200m²)</strong> = R800pm</p>
-                <p><strong>Medium (200m²-500m²)</strong> = R1100pm</p>
-                <p><strong>Large (500m²-1000m²)</strong> = R2400pm</p>
-              </div>
+        {/* --- A LA CARTE SECTION --- */}
+        <div className="alacarte-section">
+          <h2 className="section-title">A La Carte / Once-Off</h2>
+          <p className="section-subtitle">Individual services tailored to your specific needs.</p>
 
-              <div className="gold-features-grid">
-                <ul className="tier-features">
-                  <li>Lawn Mowing</li>
-                  <li>Edge Trimming</li>
-                  <li>Basic Blow Clean</li>
-                  <li>Detailed Weeding</li>
-                  <li>Hedge Bush Trimming</li>
-                  <li>Leaf Removal from Beds</li>
-                  <li>Plant Health Check</li>
-                  <li>Fertilizer Application (Seasonal)</li>
-                </ul>
-                
-                <ul className="tier-features premium-features">
-                  <li><strong>• Mulching (Seasonal)</strong></li>
-                  <li><strong>• 1 Annual Pressure Wash</strong></li>
-                  <li className="special-offer">
-                    <strong>• Monthly Premium Car Wash & Vacuum @R99</strong> <br/>
-                    <span style={{fontSize: '0.8rem', color: '#666'}}>(R300 value)</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
+          <div className="table-wrapper">
+            <table className="price-table">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Small</th>
+                  <th>Medium</th>
+                  <th>Large</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Brush-Only Lawn Cut</td>
+                  <td>R450</td>
+                  <td>R750</td>
+                  <td>R900</td>
+                </tr>
+                <tr>
+                  <td>Basic Garden Maint.</td>
+                  <td>R650</td>
+                  <td>R850</td>
+                  <td>R2000</td>
+                </tr>
+                <tr>
+                  <td>Pressure Washing</td>
+                  <td>R600</td>
+                  <td>R900</td>
+                  <td>R1500</td>
+                </tr>
+                <tr>
+                  <td>Weed Control (Steam)</td>
+                  <td>R300</td>
+                  <td>R450</td>
+                  <td>R700</td>
+                </tr>
+                <tr>
+                  <td>Weed Control (Chemical)</td>
+                  <td>R200</td>
+                  <td>R300</td>
+                  <td>R500</td>
+                </tr>
+                <tr>
+                  <td>Hedge Trimming</td>
+                  <td>R250</td>
+                  <td>R400</td>
+                  <td>R600</td>
+                </tr>
+                <tr>
+                  <td>Deep Clean / Sanitize</td>
+                  <td>R650</td>
+                  <td>R850</td>
+                  <td>R1100</td>
+                </tr>
+                <tr>
+                  <td>Disc Cutter Work</td>
+                  <td>QOR</td>
+                  <td>QOR</td>
+                  <td>QOR</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
-
-        {/* FOOTER CALL TO ACTION */}
-        <div className="pricelist-footer">
-          <h2>Order Here:</h2>
-          <div className="order-links">
-             <Link to="/booking" className="order-btn">Book Now</Link>
-             <p className="phone-number">📞 +27-62-910-6691</p>
-          </div>
-          <p className="web-link">www.hibiscuspropertycare.co.za</p>
+          <p style={{marginTop: '20px', color: '#666', fontStyle:'italic'}}>*QOR = Quote on Request</p>
         </div>
 
       </div>
