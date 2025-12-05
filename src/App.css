@@ -640,40 +640,37 @@ html {
     color: var(--primary-green);
   }
 
-  /* Mobile Menu Container - FIXED TO SCREEN */
+/* Mobile Menu Container - DROP DOWN STYLE */
   .nav-menu {
     display: flex;
     flex-direction: column;
     
-    /* 1. Force it to cover the whole screen width */
-    width: 100vw; 
-    height: 100vh;
+    width: 100%; 
+    height: 90vh; /* Covers rest of screen */
     
-    /* 2. Lock it to the screen */
     position: fixed; 
-    top: 90px; 
-    left: 0; /* Align to left edge of screen */
+    left: 0; 
     
-    /* 3. THE FIX: Use Transform instead of Left */
-    transform: translateX(-100%); /* Slides it 100% to the left (Off screen) */
+    /* 1. START POSITION: Hidden Above the screen */
+    top: -100vh; 
     
+    opacity: 0;
+    transition: all 0.5s ease;
     background: white;
     padding-top: 30px;
     gap: 0;
-    z-index: 999;
-    transition: transform 0.3s ease-in-out; /* Smooth slide effect */
+    
+    /* 2. Z-Index 999 puts it BEHIND the Navbar (1000) */
+    /* This makes it look like it slides out from inside the navbar */
+    z-index: 999; 
   }
 
-  /* Slide in to 0 when active */
+  /* 3. ACTIVE POSITION: Slides down to sit perfectly under Navbar */
   .nav-menu.active {
-    transform: translateX(0); /* Slides it back to position 0 (On screen) */
+    top: 90px; /* Matches Navbar Height */
+    opacity: 1;
+    transition: all 0.5s ease;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  }
-
-  .nav-item {
-    height: 80px;
-    width: 100%;
-    border-bottom: 1px solid #eee;
   }
 
   .nav-link {
