@@ -2,10 +2,10 @@
    GLOBAL VARIABLES & RESET
    ========================================= */
 :root {
-  --primary-green: #2F4F4F;  /* Deep Slate Green */
-  --accent-gold: #F4C430;    /* Golden Yellow */
+  --primary-green: #2f4f4f;  /* Deep Slate Green */
+  --accent-gold: #ffd900;    /* Golden Yellow */
   --text-dark: #1a1a1a;
-  --text-light: #f5f5f5;
+  --text-light: #fcfdfd;
   --bg-light: #f9fbf9;       /* Subtle Green-White */
 }
 

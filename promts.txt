@@ -6,7 +6,7 @@ open foler called public:     cd public
 edit file name cname and add text:    echo www.hibiscuspropertycare.co.za > CNAME
 
 save and uplaod to github:   git add .
-				git commit -m "hamburger menu hide solution"
+				git commit -m "new update or fix"
 				git push
 
 Publish  :npm run deploy
