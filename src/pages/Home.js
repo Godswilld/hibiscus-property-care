@@ -18,7 +18,7 @@ function Home() {
           <h1 className="hero-title">Your Space, Reimagined.</h1>
           
           {/* --- THE NEW SLOGAN --- */}
-          <h3 className="hero-slogan">"Your home, your dream, our care"</h3>
+          <h3 className="hero-slogan">"Your Home, Your Dream, Our Care"</h3>
 
           <p className="hero-subtitle">
             Comprehensive care for your personal paradise.

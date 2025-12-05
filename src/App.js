@@ -84,7 +84,7 @@ function App() {
             <p style={{color: '#888'}}>Making the world greener, one yard at a time.</p>
             <div className="contact-info">
               <p>📞 +27-62-910-6691</p>
-              <p>📧 hello@hibiscuscare.com</p>
+              <p>📧 admin@hibiscuspropertycare.co.za</p>
             </div>
             <div className="copyright">
               &copy; 2025 Hibiscus Property Care. All rights reserved.
