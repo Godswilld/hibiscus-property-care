@@ -11,3 +11,6 @@ save and uplaod to github:   git add .
 
 Publish  :npm run deploy
 
+service_xkvco7d
+template_8h51efq
+public 9f2oUOeiSIjhrxB9Z
